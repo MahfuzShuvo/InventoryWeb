@@ -1,0 +1,114 @@
+.btn-default {
+  padding: 3px 10px;
+  border: 1px solid #ddd;
+  line-height: 18px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-image: linear-gradient(#e7e6e8, #cecccc);
+}
+.btn-default:hover {
+  opacity: 0.9;
+}
+.site-footer {
+  padding: 13px 0;
+  color: #fff;
+}
+.site-footer a {
+  color: #fff;
+}
+.footer-links {
+  margin-left: -39px;
+}
+.footer-links li {
+  display: inline-block;
+  margin-right: 20px;
+}
+.left-acro li a i.fa {
+  font-size: 16px;
+  margin-right: 5px;
+}
+.active-link {
+  font-weight: 600;
+}
+.header-top {
+  background: #fff;
+  padding: 5px 0 0px 0;
+  /* box-shadow: 0px -2px 4px #333; */
+  margin-bottom: 0px;
+}
+.logo {
+  font-size: 18px;
+  margin: 5px 0 9px 0;
+  float: left;
+  text-align: left;
+  text-transform: uppercase;
+  color: #000;
+}
+.logo img {
+  width: 25px;
+  margin-right: 5px;
+  float: left;
+}
+.logo span {
+  float: left;
+  margin-top: 5px;
+}
+.logo:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.user-profile-drop {
+  text-align: left;
+}
+.user-profile-drop a {
+  width: 100%;
+  color: #000;
+  float: left;
+  margin-bottom: 5px;
+}
+
+.user-profile-drop a i {
+  margin-right: 5px;
+  color: #808080;
+}
+.user-profile-drop a:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  /* display: none; */
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  top: 46px;
+  right: 0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  box-shadow: 0px 1px 4px -1px #ddd;
+}
+
+.usr_icon {
+  font-size: 14px;
+  color: #404040;
+  transition: all 1s;
+  border: 1px solid #404040;
+  border-radius: 40px;
+  cursor: pointer;
+  padding: 2px 5px 2px 5px;
+}
+.logout_btn:hover {
+  color: #0056b3;
+}

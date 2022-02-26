@@ -1,0 +1,95 @@
+<!-- sidebar -->
+<div class="sidebar">
+	<div class="brand-logo">
+		<a href="#">
+			<img src="./assets/img/inv_logo_white.png" alt="logo">
+		</a>
+	</div>
+	<!-- sidebar menu -->
+	<div class="sidebar-menu mt-3">
+		<ul>
+			<li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+				<a [routerLink]='["/"]' class="sidebar-menu-item d-flex align-items-center gap-15">
+					<span class="material-icons">
+						dashboard
+					</span>
+					<span>Dashboard</span>
+				</a>
+			</li>
+			<li [routerLinkActive]="['active']">
+				<a [routerLink]='["/mentors-request"]' class="sidebar-menu-item d-flex align-items-center gap-15">
+					<span class="material-icons">
+						inventory
+					</span>
+					<span>Product</span>
+				</a>
+			</li>
+			<li [routerLinkActive]="['active']">
+				<a [routerLink]='["/mentors-request"]' class="sidebar-menu-item d-flex align-items-center gap-15">
+					<span class="material-icons">
+						people_alt
+					</span>
+					<span>Customer</span>
+				</a>
+			</li>
+			<li [routerLinkActive]="['active']">
+				<a [routerLink]='["/mentors-request"]' class="sidebar-menu-item d-flex align-items-center gap-15">
+					<span class="material-icons">
+						account_box
+					</span>
+					<span>Supplier</span>
+				</a>
+			</li>
+			<li [routerLinkActive]="['active']">
+				<a [routerLink]='["/mentors-request"]' class="sidebar-menu-item d-flex align-items-center gap-15">
+					<span class="material-icons">
+						category
+					</span>
+					<span>Category</span>
+				</a>
+			</li>
+			<li [routerLinkActive]="['active']">
+				<a [routerLink]='["/mentors-request"]' class="sidebar-menu-item d-flex align-items-center gap-15">
+					<span class="material-icons">
+						shopping_basket
+					</span>
+					<span>Stock</span>
+				</a>
+			</li>
+			<li [routerLinkActive]="['active']">
+				<a [routerLink]='["/mentors-request"]' class="sidebar-menu-item d-flex align-items-center gap-15">
+					<span class="material-icons">
+						settings
+					</span>
+					<span>Settings</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<header>
+	<div class="main-header d-flex justify-content-between align-items-center">
+		<div class="header-title d-flex flex-column">
+			<span><small>pages / <span style="color: #2D3748;">{{subTitle}}</span></small></span>
+			<span class="header-title-txt">{{title}}</span>
+		</div>
+		<div class="header-right d-flex justify-content-between align-items-center gap-10">
+			<div class="auth-info d-flex align-items-center gap-10">
+				<img src="assets/img/avatar.jpg" alt="">
+				<div class="auth-info-detail d-flex flex-column">
+					<span class="weight-600">Mahfuz Shuvo</span>
+					<span class="secondary-text-color font-9">Manager</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- main -->
+<main>
+	<!-- main content -->
+	<div class="main-content">
+		<router-outlet></router-outlet>
+	</div>
+</main>
