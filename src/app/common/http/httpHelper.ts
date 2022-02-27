@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 export class HttpHelper {
   static numberOfRequest = 0;
   private timeOutTime = 60000;
-  private baseUrl = 'https://localhost:44380/';
+  // private baseUrl = 'https://localhost:44380/';
+  private baseUrl = 'http://localhost:3000/';
 
   constructor(
     private httpClient: HttpClient,

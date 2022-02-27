@@ -1,0 +1,27 @@
+<div class="login-container d-flex">
+	<div class="login-container-left">
+		<img src="assets/img/inv_logo.png" alt="">
+	</div>
+	<div class="login-container-right">
+		<div class="login-body d-flex flex-column gap-30">
+			<div class="login-body-head d-flex flex-column" style="line-height: 0;">
+				<h4 class="weight-700">Welcome back!</h4>
+				<span>Login to continue</span>
+			</div>
+			<form #loginForm="ngForm" class="login-form">
+				
+				<div class="form-group">
+					<label for="userName">Username</label>
+					<input type="text" class="form-control" id="userName" name="userNameInput" [(ngModel)]="systemUser.userName" tabindex="2" required>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" class="form-control" id="password" name="passwordInput" [(ngModel)]="systemUser.password" tabindex="3" required>
+				</div>
+				<div class="form-group mt-4">
+					<button type="submit" class="success-button" [disabled]="!loginForm.valid" (click)="onSubmit(loginForm)" style="width: 100%;">SIGN IN</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
