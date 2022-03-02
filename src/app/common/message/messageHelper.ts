@@ -10,18 +10,18 @@ export class MessageHelper {
 
     showMessage(code:number, message:string) {
         if (code === appEnums.ResponseStatus.success) {
-            this.toastr.success(message, 'Corpiam', this.options);
+            this.toastr.success(message, 'BLUEBOX INVENTORY', this.options);
         }
         else if (code === appEnums.ResponseStatus.warning) {
-            this.toastr.warning(message, 'Corpiam', this.options);
+            this.toastr.warning(message, 'BLUEBOX INVENTORY', this.options);
         }
         else if (code === appEnums.ResponseStatus.info) {
-            this.toastr.info(message, 'Corpiam', this.options);
+            this.toastr.info(message, 'BLUEBOX INVENTORY', this.options);
         }
         else if (code === appEnums.ResponseStatus.fail) {
-            this.toastr.error(message, 'Corpiam', this.options);
+            this.toastr.error(message, 'BLUEBOX INVENTORY', this.options);
         } else if (code != null) {
-            this.toastr.error(message, 'Corpiam', this.options);
+            this.toastr.error(message, 'BLUEBOX INVENTORY', this.options);
         }
     }
 }

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 		// debugger
 		if (loginForm.valid) {
 			
-			this.securityService.login(this.systemUser).subscribe((response) => {
+			this.securityService.login(this.systemUser).subscribe(response => {
 				if (response.responseCode === ResponseStatus.success) {
 					localStorage.setItem("Token", response.responseObj.token);
 					localStorage.setItem("User", JSON.stringify(response.responseObj.user));

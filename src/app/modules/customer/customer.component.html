@@ -1,3 +1,70 @@
-<p>
-  customer works!
-</p>
+<div class="inv-sub-head d-flex align-items-center justify-content-between mb-3">
+	<div class="search-input d-flex align-items-center gap-3">
+		<i class='bx bx-search-alt font-15 secondary-text-color'></i>
+		<input type="text" name="searchCustomer" placeholder="Type to search customer">
+	</div>
+	<button type="button" class="theme-button" (click)="clickAddUpdateCustomer()">+ ADD NEW CUSTOMER</button>
+</div>
+<div class="inv-tableFixed">
+	<table class="inv-table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Address</th>
+				<th>Status</th>
+				<th style="text-align: right;"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of lstCustomer; let i = index">
+				<td>{{i+1}}</td>
+				<td>
+					<div class="d-flex align-items-center gap-10">
+						<svg *ngIf="item.gender == 'female'" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+							<circle id="_6" data-name="6" cx="16" cy="16" r="16" fill="#e57883"></circle>
+							<path id="Path_702" data-name="Path 702" d="M15.995,14.779c-.01-.108-.017-.281-.023-.461,1.633-.167,2.779-.559,2.779-1.015,0,0,0-.019,0-.026-1.221-1.1,1.058-8.918-3.184-8.759a2.158,2.158,0,0,0-1.4-.426c-5.747.435-3.206,7.817-4.515,9.211h0v0h0c.005.447,1.112.831,2.7,1,0,.109-.014.244-.035.47-.658,1.77-5.1,1.273-5.306,4.687H21.282C21.077,16.053,16.653,16.549,15.995,14.779Z" transform="translate(1.859 3.221)" fill="#fff"></path>
+						</svg>
+						<svg *ngIf="item.gender == 'male'" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+							<circle id="_2" data-name="2" cx="16" cy="16" r="16" fill="#676291"></circle>
+							<path id="Path_707" data-name="Path 707" d="M16.321,15.35a16.1,16.1,0,0,1-.035-1.64,3.209,3.209,0,0,0,.88-1.9c.224-.018.576-.236.679-1.1a.8.8,0,0,0-.3-.8c.364-1.094,1.119-4.479-1.4-4.828a1.979,1.979,0,0,0-1.784-.685C10.915,4.454,10.5,7,11.255,9.9a.805.805,0,0,0-.3.8c.1.861.456,1.079.679,1.1a3.2,3.2,0,0,0,.9,1.9,16.1,16.1,0,0,1-.035,1.64c-.682,1.834-5.286,1.32-5.5,4.858H21.8C21.588,16.669,17,17.184,16.321,15.35Z" transform="translate(1.6 3.701)" fill="#fff"></path>
+						</svg>
+						<div class="d-flex flex-column">
+							<div class="weight-600">
+								{{item.firstName}} {{item.lastName}} 
+								<span class="text-capitalize secondary-text-color weight-400">({{item.gender[0]}})</span>
+							</div>
+							<span class="secondary-text-color font-9">{{item.phone}}</span>
+						</div>
+					</div>
+				</td>
+				<td>{{item.email}}</td>
+				<td>{{item.street}}, {{item.city}}, {{item.state}}-{{item.zip}}</td>
+				<td class="text-capitalize">
+					<span class="badge active-badge d-flex align-items-center justify-content-center gap-5"
+							[class.active-badge]="item.status == 'active'" [class.inactive-badge]="item.status == 'inactive'">
+						<i *ngIf="item.status == 'active'" class='bx bx-check-circle font-10'></i>
+						<i *ngIf="item.status == 'inactive'" class='bx bx-x-circle font-10'></i>
+						{{item.status}}
+					</span>
+				</td>
+				<td style="text-align: right;">
+					<div class="d-flex align-item-center gap-15 justify-content-end">
+						<button type="button" class="action-button edit">
+							<span class="material-icons-outlined">edit_note</span>
+							<!-- <i class='bx bx-edit'></i> -->
+						</button>
+						<button type="button" class="action-button delete">
+							<span class="material-icons-outlined">delete</span>
+							<!-- <i class='bx bx-trash-alt'></i> -->
+						</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!-- add and update customer modal -->
+<app-add-update-modal></app-add-update-modal>

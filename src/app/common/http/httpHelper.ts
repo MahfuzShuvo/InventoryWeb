@@ -85,7 +85,7 @@ export class HttpHelper {
     var token = localStorage.getItem('Token') || '';
     var headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
-      Authorization: token,
+      Authorization: 'Bearer '+token,
     });
 
     return this.httpClient

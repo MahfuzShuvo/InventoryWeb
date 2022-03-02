@@ -1,3 +1,5 @@
+import { ToastrService } from 'ngx-toastr';
+import { AuthGuardService } from './../auth/auth.guard.service';
 import { Router } from '@angular/router';
 import { SystemUser } from './../../models/systemUser';
 /*
@@ -32,7 +34,9 @@ export class HomeLayoutComponent implements OnInit {
 	constructor(
 		private messageHelper: MessageHelper,
 		private headerService: HeaderService,
-		private router: Router
+		private router: Router,
+		private toastr: ToastrService,
+		private authGuardService: AuthGuardService
 	) {
 		// if (localStorage.getItem("User") === null  || localStorage.getItem("User") === 'null' || !localStorage.hasOwnProperty('User')) {
 		// 	this.user={'FullName':''};
@@ -60,6 +64,22 @@ export class HomeLayoutComponent implements OnInit {
 
 	logout() {
 		localStorage.clear();
+		this.authGuardService.logout();
 		this.router.navigate(['/login']);
+		this.messageHelper.showMessage(200, "Logout Successfully!");
+		// this.securityService.logOut().subscribe(() => {
+			// 	localStorage.removeItem('Token');
+			// 	localStorage.removeItem('User');
+			// 	localStorage.removeItem('image');
+			// 	localStorage.removeItem('userTypeTitle');
+			// 	localStorage.removeItem('displayName');
+			// 	localStorage.removeItem('userName');
+			// 	localStorage.removeItem("UserId")
+			// 	localStorage.removeItem("gSearch")
+			// 	localStorage.removeItem("dropDownOrganization")
+			// this.toastr.success("Logout Successfully!", "Logout");
+		// 	localStorage.removeItem("selectedOrganization")
+		// 	this.router.navigate(['/login']);
+		// });
 	}
 }

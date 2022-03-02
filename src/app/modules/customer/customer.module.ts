@@ -1,3 +1,4 @@
+import { AddUpdateModalComponent } from './add-update-modal/add-update-modal.component';
 import { SharedModule } from './../../shared.module';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,9 @@ const route: Routes = [
 		RouterModule.forChild(route),
 		SharedModule.forRoot(),
 	],
-	declarations: [CustomerComponent]
+	declarations: [
+		CustomerComponent, 
+		AddUpdateModalComponent
+	]
 })
 export class CustomerModule { }
