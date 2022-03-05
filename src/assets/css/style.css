@@ -135,7 +135,7 @@ button:disabled:hover {
     background: var(--theme-color);
     color: #fff;
 }
-.success-button {
+.login-button {
     background: var(--success-color);
     border: none;
     outline: none;
@@ -145,7 +145,31 @@ button:disabled:hover {
     padding: 5px 20px;
     transition: all 0.3s ease;
 }
+.login-button:hover {
+    transform: scale(.97);
+}
+.success-button {
+    border: none;
+    outline: none;
+    padding: 5px 25px;
+    border-radius: 5px;
+    background: var(--success-color);
+    color: #fff;
+    transition: all 0.3s ease;
+}
 .success-button:hover {
+    transform: scale(.97);
+}
+.danger-button {
+    border: none;
+    outline: none;
+    padding: 5px 25px;
+    border-radius: 5px;
+    background: var(--danger-color);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.danger-button:hover {
     transform: scale(.97);
 }
 /* all buttons end */
@@ -501,7 +525,7 @@ main {
 }
 .inv-tableFixed {
     overflow-y: auto;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 143px);
 }
 table.inv-table {
     border-collapse: collapse;
@@ -639,4 +663,51 @@ table.inv-table tbody tr:not(:last-child) {
 .inventory-modal-header {
     border-bottom: 1px solid #f8f9fa;
     padding-bottom: 10px;
+}
+/* toggle switch start */
+div.checkbox.switcher label, div.radio.switcher label {
+    padding: 0;
+}
+div.checkbox.switcher label *, div.radio.switcher label * {
+    vertical-align: middle;
+}
+div.checkbox.switcher label input, div.radio.switcher label input {
+    display: none;
+}
+div.checkbox.switcher label input + span, div.radio.switcher label input + span {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    width: 28px;
+    height: 14px;
+    background: #f2f2f2;
+    border: 1px solid #eee;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+div.checkbox.switcher label input + span small, div.radio.switcher label input + span small {
+    position: absolute;
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    left: 0;
+}
+div.checkbox.switcher label input:checked + span, div.radio.switcher label input:checked + span {
+    background: var(--success-color);
+    border-color: var(--success-color);
+}
+div.checkbox.switcher label input:checked + span small, div.radio.switcher label input:checked + span small {
+    left: 50%;
+}
+/* toggle switch end */
+.createdBy-badge {
+    background: #e9ecef;
+    color: var(--primary-text-color);
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 9px;
+    font-weight: 600;
 }

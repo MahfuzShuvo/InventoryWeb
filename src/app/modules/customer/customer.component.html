@@ -3,7 +3,7 @@
 		<i class='bx bx-search-alt font-15 secondary-text-color'></i>
 		<input type="text" name="searchCustomer" placeholder="Type to search customer">
 	</div>
-	<button type="button" class="theme-button" (click)="clickAddUpdateCustomer()">+ ADD NEW CUSTOMER</button>
+	<button type="button" class="theme-button" (click)="clickAddCustomer()">+ ADD NEW CUSTOMER</button>
 </div>
 <div class="inv-tableFixed">
 	<table class="inv-table">
@@ -13,6 +13,7 @@
 				<th>Name</th>
 				<th>Email</th>
 				<th>Address</th>
+				<th>Created By</th>
 				<th>Status</th>
 				<th style="text-align: right;"></th>
 			</tr>
@@ -39,23 +40,26 @@
 						</div>
 					</div>
 				</td>
-				<td>{{item.email}}</td>
-				<td>{{item.street}}, {{item.city}}, {{item.state}}-{{item.zip}}</td>
-				<td class="text-capitalize">
+				<td>{{item.email ? item.email : '-'}}</td>
+				<td>{{item.street}}, {{item.city}}, {{item.state}}, {{item.zip}}</td>
+				<td>
+					<span class="badge createdBy-badge">{{item.createdBy['firstName']}} {{item.createdBy['lastName']}}</span>
+				</td>
+				<td>
 					<span class="badge active-badge d-flex align-items-center justify-content-center gap-5"
-							[class.active-badge]="item.status == 'active'" [class.inactive-badge]="item.status == 'inactive'">
-						<i *ngIf="item.status == 'active'" class='bx bx-check-circle font-10'></i>
-						<i *ngIf="item.status == 'inactive'" class='bx bx-x-circle font-10'></i>
-						{{item.status}}
+							[class.active-badge]="item.status" [class.inactive-badge]="!item.status">
+						<i *ngIf="item.status" class='bx bx-check-circle font-10'></i>
+						<i *ngIf="!item.status" class='bx bx-x-circle font-10'></i>
+						{{item.status ? 'Active' : 'Inactive'}}
 					</span>
 				</td>
 				<td style="text-align: right;">
 					<div class="d-flex align-item-center gap-15 justify-content-end">
 						<button type="button" class="action-button edit">
-							<span class="material-icons-outlined">edit_note</span>
+							<span class="material-icons-outlined" (click)="clickUpdateCustomer(item)">edit_note</span>
 							<!-- <i class='bx bx-edit'></i> -->
 						</button>
-						<button type="button" class="action-button delete">
+						<button type="button" class="action-button delete" (click)="clickDeleteModal(item)">
 							<span class="material-icons-outlined">delete</span>
 							<!-- <i class='bx bx-trash-alt'></i> -->
 						</button>
@@ -67,4 +71,27 @@
 </div>
 
 <!-- add and update customer modal -->
-<app-add-update-modal></app-add-update-modal>
+<app-add-update-modal (loadAllCustomerOutput)="getCustomers()" [events]="myOutput.asObservable()"></app-add-update-modal>
+
+<!-- delete customer modal -->
+<div class="modal fade" id="delteCustomerModal" aria-labelledby="delteCustomerModalLabel" 
+	data-bs-backdrop="static" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			
+			<div class="modal-body">
+				<div class="inventory-modal-header d-flex justify-content-between align-items-center">
+					<span class="font-14 weight-700">DELETE CUSTOMER</span>
+				</div>
+				<div class="inventory-modal-body mt-3">
+					<span>Are you sure want to delete this customer?</span>
+					<div class="form-group d-flex align-items-center gap-10 justify-content-end mt-2">
+						<button type="button" class="danger-button" (click)="closeDeleteModal()">No</button>
+						<button type="button" class="success-button" (click)="deleteCustomer()">Yes</button>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

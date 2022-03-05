@@ -17,7 +17,6 @@ export class SecurityService {
 		return this.httpHelper.postHelper(url, obj);
 	}
 
-
 	// logOut(): any {
 	// 	const url = 'api/systemuser/logout';
 	// 	return this.httpHelper.postHelper(url);

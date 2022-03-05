@@ -1,48 +1,66 @@
 <!-- add and update customer Modal -->
-<div class="modal fade" id="addUpdateCustomerModal" tabindex="-1" aria-labelledby="addUpdateCustomerModalLabel" aria-hidden="true">
+<div class="modal fade" id="addUpdateCustomerModal" aria-labelledby="addUpdateCustomerModalLabel" 
+	data-bs-backdrop="static" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			
 			<div class="modal-body">
 				<div class="inventory-modal-header d-flex justify-content-between align-items-center">
-					<span class="font-14 weight-700">ADD CUSTOMER</span>
-					<span class="modal-close-btn"><i class='bx bx-x font-18'></i></span>
+					<span class="font-14 weight-700">{{isAddModal ? 'ADD CUSTOMER': 'EDIT CUSTOMER'}}</span>
+					<span class="modal-close-btn" (click)="closeModal()">
+						<i class='bx bx-x font-18'></i>
+					</span>
 				</div>
 				<div class="inventory-modal-body mt-3">
-					<form action="" class="inventory-modal-form">
+					<form #customerForm="ngForm" class="inventory-modal-form">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="firstName" class="font-10 weight-600 secondary-text-color">FIRST NAME</label>
-									<input type="text" class="form-control" id="firstName" name="firstName">
+									<label for="firstName" class="font-10 weight-600 secondary-text-color">
+										FIRST NAME
+									</label>
+									<input type="text" class="form-control" id="firstName" [(ngModel)]="objCustomer.firstName"
+											name="firstName" tabindex="1" required>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="lastName" class="font-10 weight-600 secondary-text-color">LAST NAME</label>
-									<input type="text" class="form-control" id="lastName" name="lastName">
+									<label for="lastName" class="font-10 weight-600 secondary-text-color">
+										LAST NAME
+									</label>
+									<input type="text" class="form-control" id="lastName" [(ngModel)]="objCustomer.lastName"
+											name="lastName" tabindex="2">
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="contact" class="font-10 weight-600 secondary-text-color">CONTACT</label>
-									<input type="text" class="form-control" id="contact" name="contact">
+									<label for="contact" class="font-10 weight-600 secondary-text-color">
+										CONTACT
+									</label>
+									<input type="text" class="form-control" id="contact" [(ngModel)]="objCustomer.phone"
+											name="contact" tabindex="3" required>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="email" class="font-10 weight-600 secondary-text-color">EMAIL</label>
-									<input type="email" class="form-control" id="email" name="email">
+									<label for="email" class="font-10 weight-600 secondary-text-color">
+										EMAIL
+									</label>
+									<input type="email" class="form-control" id="email" [(ngModel)]="objCustomer.email"
+											name="email" tabindex="4">
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="gender" class="font-10 weight-600 secondary-text-color">GENDER</label>
-									<select name="gender" id="gender" class="form-control">
+									<label for="gender" class="font-10 weight-600 secondary-text-color">
+										GENDER
+									</label>
+									<select name="gender" id="gender" class="form-control" [(ngModel)]="objCustomer.gender"
+											tabindex="5" required>
 										<option value="male">Male</option>
 										<option value="female">Female</option>
 									</select>
@@ -52,22 +70,48 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="adress" class="font-10 weight-600 secondary-text-color">ADDRESS</label>
+									<label for="adress" class="font-10 weight-600 secondary-text-color">
+										ADDRESS
+									</label>
 								</div>
 								<div class="row">
 									<div class="col-md-12">
-										<input type="text" class="form-control" id="street" name="street" placeholder="Street">
+										<input type="text" class="form-control" id="street" name="street" [(ngModel)]="objCustomer.street"
+												placeholder="Street" tabindex="6" required>
 									</div>
 									<div class="col-md-4">
-										<input type="text" class="form-control" id="city" name="city" placeholder="City">
+										<input type="text" class="form-control" id="city" name="city" [(ngModel)]="objCustomer.city"
+												placeholder="City" tabindex="7">
 									</div>
 									<div class="col-md-4">
-										<input type="text" class="form-control" id="state" name="state" placeholder="State">
+										<input type="text" class="form-control" id="state" name="state" [(ngModel)]="objCustomer.state"
+												placeholder="State" tabindex="8">
 									</div>
 									<div class="col-md-4">
-										<input type="text" class="form-control" id="zip" name="zip" placeholder="ZIP">
+										<input type="text" class="form-control" id="zip" [(ngModel)]="objCustomer.zip"
+												name="zip" placeholder="ZIP" tabindex="9">
 									</div>
 								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="status" class="font-10 weight-600 secondary-text-color">STATUS</label>
+								</div>
+								<div class="checkbox switcher">
+									<label for="statusToggle">
+									  <input type="checkbox" id="statusToggle" tabindex="10" name="status"
+									  			[(ngModel)]="objCustomer.status">
+									  <span><small></small></span>
+									  <span>Active</span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="form-group" style="text-align: right;">
+								<button type="button" class="success-button" [disabled]="!customerForm.valid" (click)="onSubmit()">{{isAddModal ? 'SAVE' : 'UPDATE'}}</button>
 							</div>
 						</div>
 					</form>
