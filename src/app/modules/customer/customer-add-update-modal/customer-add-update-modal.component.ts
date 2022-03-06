@@ -1,17 +1,17 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { MessageHelper } from './../../../common/message/messageHelper';
-import { CustomerService } from './../../../services/customer.service';
-import { Customer } from './../../../models/customer';
+import { MessageHelper } from '../../../common/message/messageHelper';
+import { CustomerService } from '../../../services/customer.service';
+import { Customer } from '../../../models/customer';
 import { ResponseStatus } from 'src/app/common/enums/appEnums';
 
 declare var $: any;
 
 @Component({
-	selector: 'app-add-update-modal',
-	templateUrl: './add-update-modal.component.html'
+	selector: 'customer-app-add-update-modal',
+	templateUrl: './customer-add-update-modal.component.html'
 })
-export class AddUpdateModalComponent implements OnInit {
+export class CustomerAddUpdateModalComponent implements OnInit {
 
 	public objCustomer: Customer = new Customer();
 	public isAddModal: boolean = true;

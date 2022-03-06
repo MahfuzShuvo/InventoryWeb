@@ -1,4 +1,4 @@
-import { AddUpdateModalComponent } from './add-update-modal/add-update-modal.component';
+import { CustomerAddUpdateModalComponent } from './customer-add-update-modal/customer-add-update-modal.component';
 import { SharedModule } from './../../shared.module';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -17,7 +17,7 @@ const route: Routes = [
 	],
 	declarations: [
 		CustomerComponent, 
-		AddUpdateModalComponent
+		CustomerAddUpdateModalComponent
 	]
 })
 export class CustomerModule { }

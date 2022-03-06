@@ -10,7 +10,7 @@
 		<thead>
 			<tr>
 				<th>#</th>
-				<th>Name</th>
+				<th>Customer Name</th>
 				<th>Email</th>
 				<th>Address</th>
 				<th>Created By</th>
@@ -71,7 +71,7 @@
 </div>
 
 <!-- add and update customer modal -->
-<app-add-update-modal (loadAllCustomerOutput)="getCustomers()" [events]="myOutput.asObservable()"></app-add-update-modal>
+<customer-app-add-update-modal (loadAllCustomerOutput)="getCustomers()" [events]="myOutput.asObservable()"></customer-app-add-update-modal>
 
 <!-- delete customer modal -->
 <div class="modal fade" id="delteCustomerModal" aria-labelledby="delteCustomerModalLabel" 
